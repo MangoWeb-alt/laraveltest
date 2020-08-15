@@ -60,7 +60,19 @@
                                 {{csrf_field()}}
                                 <td class="cart_quantity">
                                     <div class="cart_quantity_button">
+                                        <?php
+                                        if($value['product_qty']<=$value['cart_product_quantity']){
+                                        ?>
                                         <input class="cart_quantity_input" type="text" min="1" name="cart_qty[{{$value['session_id']}}]" value="{{$value['product_qty']}}" autocomplete="off" size="5">
+                                            <?php
+                                            }else{
+                                            echo("<span style='font-size: 15px;color: red;'>Please buy no more than ".$value['cart_product_quantity']."</span>");
+                                            ?>
+
+                                            <input class="cart_quantity_input" type="text" min="1" name="cart_qty[{{$value['session_id']}}]" value="{{$value['cart_product_quantity']}}" autocomplete="off" size="5">
+                                            <?php
+                                            }
+                                            ?>
                                         <input type="submit" name="update_qty" class="btn btn-success" value="Update">
                                     </div>
                                 </td>

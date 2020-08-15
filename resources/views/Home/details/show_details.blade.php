@@ -22,14 +22,17 @@
                 ?>
 
                 <form>
-                    {{csrf_field()}}
+                    @csrf
                     <input type="hidden" name="cart_product_id" value="{{$value_detail->product_id}}" class="cart_product_id_{{$value_detail->product_id}}">
                     <input type="hidden" name="cart_product_name" value="{{$value_detail->product_name}}" class="cart_product_name_{{$value_detail->product_id}}">
                     <input type="hidden" name="cart_product_image" value="{{$value_detail->product_image}}" class="cart_product_image_{{$value_detail->product_id}}">
                     <input type="hidden" name="cart_product_price" value="{{$value_detail->product_price}}" class="cart_product_price_{{$value_detail->product_id}}">
-                    <input type="hidden" name="cart_product_quantity" value="1" class="cart_product_quantity_{{$value_detail->product_id}}">
+                    <input type="hidden" name="cart_product_quantity" value="{{$value_detail->product_quantity}}" class="cart_product_quantity_{{$value_detail->product_id}}">
                     <span>
 									<span>{{number_format($value_detail->product_price)}} VNĐ</span>
+                        <label>Quantity</label>
+                        <input name="cart_product_qty" type="number" min="1" class="cart_product_qty_{{$value_detail->product_id}}" value="1"/>
+                        <input type="hidden" name="productid_hidden" value="{{$value_detail->product_id}}"/>
                         <?php
                         $customer_id = session::get('customer_id');
                         if($customer_id){

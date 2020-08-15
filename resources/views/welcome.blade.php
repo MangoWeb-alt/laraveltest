@@ -435,33 +435,39 @@ $('.add-to-cart').click(function () {
     var cart_product_image = $('.cart_product_image_' + id).val();
     var cart_product_price = $('.cart_product_price_' + id).val();
     var cart_product_quantity = $('.cart_product_quantity_' + id).val();
+    var cart_product_qty = $('.cart_product_qty_' + id).val();
     var _token = $('input[name="_token"]').val();
-    $.ajax({
-       url:'{{url("/add-cart-ajax")}}',
-       method:'POST',
-        data:{
-            cart_product_id:cart_product_id,
-            cart_product_name:cart_product_name,
-            cart_product_image:cart_product_image,
-            cart_product_price:cart_product_price,
-            cart_product_quantity:cart_product_quantity,
-            _token:_token
-        },
-        success:function (data){
-           swal({
-             title: 'Product was added to cart',
-             text: "You can buy another product or go to your cart",
-             showCancelButton: true,
-               cancelButtonText: 'Continue to buy',
-               confirmButtonClass: "btn-success",
-               confirmButtonText: "Go to your cart",
-               closeOnConfirm: false,
-           },
-               function () {
-                     window.location.href="{{URL('/show-cart-ajax')}}";
-               });
-       }
-    });
+        if(parseInt(cart_product_qty) > parseInt(cart_product_quantity)){
+            alert("We don't have enough stocks! please order <="+cart_product_quantity);
+        }else {
+            $.ajax({
+                url: '{{url("/add-cart-ajax")}}',
+                method: 'POST',
+                data: {
+                    cart_product_id: cart_product_id,
+                    cart_product_name: cart_product_name,
+                    cart_product_image: cart_product_image,
+                    cart_product_price: cart_product_price,
+                    cart_product_quantity: cart_product_quantity,
+                    cart_product_qty: cart_product_qty,
+                    _token: _token
+                },
+                success: function (data) {
+                    swal({
+                            title: 'Product was added to cart',
+                            text: "You can buy another product or go to your cart",
+                            showCancelButton: true,
+                            cancelButtonText: 'Continue to buy',
+                            confirmButtonClass: "btn-success",
+                            confirmButtonText: "Go to your cart",
+                            closeOnConfirm: false,
+                        },
+                        function () {
+                            window.location.href = "{{URL('/show-cart-ajax')}}";
+                        });
+                }
+            });
+        }
 });
 });
 </script>

@@ -17,7 +17,8 @@
                         <input type="hidden" name="cart_product_name" value="{{$value->product_name}}" class="cart_product_name_{{$value->product_id}}">
                         <input type="hidden" name="cart_product_image" value="{{$value->product_image}}" class="cart_product_image_{{$value->product_id}}">
                         <input type="hidden" name="cart_product_price" value="{{$value->product_price}}" class="cart_product_price_{{$value->product_id}}">
-                        <input type="hidden" name="cart_product_quantity" value="1" class="cart_product_quantity_{{$value->product_id}}">
+                        <input type="hidden" name="cart_product_quantity" value="{{$value->product_quantity}}" class="cart_product_quantity_{{$value->product_id}}">
+                        <input type="hidden" name="cart_product_qty" value="1" class="cart_product_qty_{{$value->product_id}}">
                     <a href="{{URL::to('/product-details/'.$value->product_id)}}">
                     <img src="{{URL::to('style/uploads/product/'.$value->product_image)}}" width="120" height="150" alt="" />
                     <h2>{{number_format($value->product_price)}} VNĐ</h2>
