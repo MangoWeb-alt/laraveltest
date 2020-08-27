@@ -1,5 +1,5 @@
 <?php use Illuminate\Support\Facades\Session;?>
-<!DOCTYPE html>
+    <!DOCTYPE html>
 <head>
     <title>Visitors an Admin Panel Category Bootstrap Responsive Website Template | Login :: w3layouts</title>
     <meta name="viewport" content="width=device-width, initial-scale=1">
@@ -24,23 +24,23 @@ Smartphone Compatible web template, free webdesigns for Nokia, Samsung, LG, Sony
 <body>
 <div class="log-w3">
     <div class="w3layouts-main">
-        <h2>Sign In Now</h2>
+        <h2>Sign In Auth Now</h2>
         <?php
         $message = session::get('message');
         if($message){
-            echo '<p>'.$message.'</p>';
+            echo '<p style="color: red;font-size:35px;font-weight: 400">'.$message.'</p>';
             Session::put('message',NULL);
         }
         ?>
-        <form action="{{URL::to('/admin-login')}}" method="post">
+        <form action="{{URL::to('/login')}}" method="post">
             @csrf
             <input type="email" class="ggg" name="admin_email" placeholder="EMAIL" required="">
             <input type="password" class="ggg" name="admin_password" placeholder="PASSWORD" required="">
             <input type="submit" value="Sign In" name="login">
-        <a href="{{URL::to('/login-facebook')}}" style="color:red">Login Facebook</a> ||
-        <a href="{{URL::to('/login-google')}}" style="color:blue">Login Google</a> ||
-        <a href="{{URL::to('/register-auth')}}" style="color:red">Register Auth</a> ||
-        <a href="{{URL::to('/login-auth')}}" style="color:blue">Login Auth</a>
+            <a href="{{URL::to('/login-facebook')}}" style="color:red">Login Facebook</a> ||
+            <a href="{{URL::to('/login-google')}}" style="color:blue">Login Google</a> ||
+            <a href="{{URL::to('/register-auth')}}" style="color:red">Register Auth</a> ||
+            <a href="{{URL::to('/admin')}}" style="color:blue">Login Admin</a>
         </form>
     </div>
 </div>

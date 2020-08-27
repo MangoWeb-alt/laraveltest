@@ -142,3 +142,9 @@ Route::post('/save-slider','Banner_Controller@save_slider');
 Route::get('/non-active-slider/{slider_id}','Banner_Controller@non_active_slider');
 Route::get('/active-slider/{slider_id}','Banner_Controller@active_slider');
 Route::get('/delete-slider/{slider_id}','Banner_Controller@delete_slider');
+//Auth
+Route::get('/register-auth','Auth_Controller@register_auth');
+Route::post('/register','Auth_Controller@register');
+Route::get('/login-auth','Auth_Controller@login_auth');
+Route::post('/login','Auth_Controller@login');
+Route::get('/logout-auth','Auth_Controller@logout_auth');
