@@ -17,18 +17,18 @@ session_start();
 
 class Admin_Controller extends Controller
 {
-//    public function Auth_login()
-//    {
-//        $admin_id = Auth::id('admin_id');
-//        if($admin_id){
-//            return redirect::to('dashboard');
-//        } else {
-//            return redirect::to('admin')->send();
-//        }
-//    }
+    public function Auth_login()
+    {
+        $admin_id = Session::get('admin_id');
+        if($admin_id){
+            return redirect::to('dashboard');
+        } else {
+            return redirect::to('admin')->send();
+        }
+    }
     public function show_dashboard()
     {
-//        $this->auth_login();
+        $this->auth_login();
         return view('admin_layout');
     }
     public function admin()

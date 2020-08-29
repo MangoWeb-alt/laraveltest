@@ -37,10 +37,6 @@ Smartphone Compatible web template, free webdesigns for Nokia, Samsung, LG, Sony
             <input type="email" class="ggg" name="admin_email" placeholder="EMAIL" required="">
             <input type="password" class="ggg" name="admin_password" placeholder="PASSWORD" required="">
             <input type="submit" value="Sign In" name="login">
-        <a href="{{URL::to('/login-facebook')}}" style="color:red">Login Facebook</a> ||
-        <a href="{{URL::to('/login-google')}}" style="color:blue">Login Google</a> ||
-        <a href="{{URL::to('/register-auth')}}" style="color:red">Register Auth</a> ||
-        <a href="{{URL::to('/login-auth')}}" style="color:blue">Login Auth</a>
         </form>
     </div>
 </div>
